@@ -41,3 +41,6 @@ class Patient:
     
         glucoseLevel = self._getRowAtNearestTimestamp(timestamp=timestamp)['BG']
         return glucoseLevel
+    
+    def getPatientType(self):
+        return self._patientType
