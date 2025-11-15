@@ -31,5 +31,12 @@ class Rectangle(Shape):
 
         dpg.draw_rectangle(pmin=v1, pmax=v2,fill=fillColor)
         
-        txtPos = (height/2, width/2)
-        dpg.draw_text(pos=txtPos, text=self.textLabel, size=self.textLabelSize, color=(0,0,0,255))
+        txtPos = ((v1[0]+self.width/2.5)-len(textLabel) , (v2[0]+self.width)/2)
+        dpg.draw_text(pos=txtPos, text=self.textLabel, size=self.textLabelSize, color=(0,0,0,255))  
+
+
+class ShapeConnection():
+    def __init__(self, shape1 : Shape, shape2: Shape):
+        startPos = (shape1.xpos, shape1.ypos)
+        endPos = (shape2.xpos, shape2.ypos)
+        dpg.draw_arrow(startPos, endPos, color=(255,255,255,255))

@@ -8,7 +8,7 @@ import keyboard
 
 import dearpygui.dearpygui as dpg
 
-from shapes import Circle, Rectangle, Shape
+from shapes import Circle, Rectangle, Shape, ShapeConnection
 
 
 def log_msg(message: str):
@@ -111,10 +111,11 @@ with dpg.window(label="SIM GLUCOSE", height=dpg.get_viewport_max_height(), width
         with dpg.drawlist(height=500, width=720):
             #dpg.draw_circle((250,250),50,fill=(255,255,255,255), label="CGM")
             cgm = Circle((250,250), 50,fillColor=(255,255,255,255), textLabel="CGM")
-            mcu = Rectangle((350,250), width=150, height=100, textLabel="MCU(ESP-32)", fillColor=(255,255,255,255))
-
-            dpg.draw_arrow(((mcu.xpos + mcu.height)/2,mcu.ypos),(cgm.xpos+cgm.radius,cgm.ypos),color=(255,0,0,255))
-        #dpg.add_text(default_value='CGM', pos=(250,250), color=(0,0,0,255))
+            mcu = Rectangle((400,200), width=150, height=100, textLabel="MCU(ESP-32)", fillColor=(255,255,225,255))
+            
+            cgm2mcuConn = ShapeConnection(cgm, mcu)
+            #dpg.draw_arrow(((mcu.xpos + mcu.height)/2,mcu.ypos),(cgm.xpos+cgm.radius,cgm.ypos),color=(255,0,0,255))
+        
 
 
 
